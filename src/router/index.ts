@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { ThreadExistsGuard } from '@/router/guards/ThreadExistsGuard';
 
 export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,7 +13,13 @@ export default createRouter({
       path: '/thread/:id',
       name: 'ThreadShow',
       component: () => import('@/views/PageThreadShow.vue'),
-      props: true
+      props: true,
+      beforeEnter: ThreadExistsGuard,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('@/views/PageNotFound.vue')
     }
   ]
 });

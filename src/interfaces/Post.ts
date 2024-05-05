@@ -1,5 +1,5 @@
 export interface Post {
-  edited: {
+  edited?: {
     at: number;
     by: string;
     moderated: boolean;

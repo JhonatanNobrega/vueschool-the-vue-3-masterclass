@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ThreadListItem from '@/components/ThreadListItem.vue';
 import type { Thread } from '@/interfaces/Thread';
-defineProps<{
-  threads: Thread[]
-}>()
+
+// Props
+defineProps<{threads: Thread[]}>()
 </script>
 
 <template>

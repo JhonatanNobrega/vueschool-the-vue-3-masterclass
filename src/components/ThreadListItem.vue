@@ -4,9 +4,8 @@ import { useData } from '@/composables/useData';
 import type { Thread } from '@/interfaces/Thread';
 import type { User } from '@/interfaces/User';
 
-defineProps<{
-  thread: Thread
-}>();
+// Props
+defineProps<{thread: Thread}>();
 
 // Composables
 const sourceData = useData();
@@ -26,7 +25,7 @@ function userById(userId: string): User {
   <div class="thread">
     <div>
       <p>
-        <a href="#">{{ thread.title }}</a>
+        <RouterLink :to="{name: 'ThreadShow', params: {id: thread.id}}">{{ thread.title }}</RouterLink>
       </p>
       <p class="text-faded text-xsmall">
         By <a href="profile.html">{{ userById(thread.userId).name }}</a>, {{ thread.publishedAt }}.
