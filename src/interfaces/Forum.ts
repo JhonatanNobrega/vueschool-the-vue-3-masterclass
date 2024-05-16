@@ -4,6 +4,6 @@ export interface Forum {
   lastPostId: string;
   name: string;
   slug: string;
-  threads: string[];
+  threads?: string[];
   id: string;
 }

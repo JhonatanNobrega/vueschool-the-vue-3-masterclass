@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import ThreadList from '@/components/ThreadList.vue';
+import ForumList from '@/components/ForumList.vue';
 import { useData } from '@/composables/useData';
-import type { Thread } from '@/interfaces/Thread';
+import type { Forum } from '@/interfaces/Forum';
 
 // Composables
 const sourceData = useData();
 
 // Data Reactives
-const threads = ref<Thread[]>(sourceData.threads);
+const forums = ref<Forum[]>(sourceData.forums);
 </script>
 
 <template>
   <h1>Welcome to the Forum</h1>
-  <ThreadList :threads="threads"/>
+  <ForumList :forums="forums"/>
 </template>
 
 <style scoped>
