@@ -10,6 +10,12 @@ export default createRouter({
       component: () => import('@/views/PageHome.vue')
     },
     {
+      path: '/forum/:id',
+      name: 'Forum',
+      component: () => import('@/views/PageForum.vue'),
+      props: true,
+    },
+    {
       path: '/thread/:id',
       name: 'ThreadShow',
       component: () => import('@/views/PageThreadShow.vue'),
