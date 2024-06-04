@@ -10,6 +10,12 @@ export default createRouter({
       component: () => import('@/views/PageHome.vue')
     },
     {
+      path: '/category/:id',
+      name: 'Category',
+      component: () => import('@/views/PageCategory.vue'),
+      props: true,
+    },
+    {
       path: '/forum/:id',
       name: 'Forum',
       component: () => import('@/views/PageForum.vue'),

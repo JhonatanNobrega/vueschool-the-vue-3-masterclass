@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import type { Forum } from '@/interfaces/Forum';
 
-defineProps<{
+withDefaults(defineProps<{
+  title?: string;
   forums: Forum[];
-}>();
+  categoryId?: string
+}>(), {
+  title: () => 'Forums',
+  categoryId: () => '',
+});
+
 
 function forumThreadsWord(forum: Forum) {
   if (forum.threads?.length) {
@@ -19,7 +25,8 @@ function forumThreadsWord(forum: Forum) {
     <div class="forum-list">
 
       <h2 class="list-title">
-        <a href="#">Feedback &amp; Information</a>
+        <RouterLink v-if="categoryId" :to="{name: 'Category', params: {id: categoryId}}">{{ title }}</RouterLink>
+        <span v-else>{{ title }}</span>
       </h2>
 
       <div class="forum-listing" v-for="forum in forums" :key="forum.id">
